@@ -5,7 +5,6 @@ import java.util.Random;
 public class SnakeLadderGame {
 
     static int startPosition=0;
-	static int topPosition=0;
 	static int currentPosition=0;
 	
 	public static int findNumRollsDie() {
