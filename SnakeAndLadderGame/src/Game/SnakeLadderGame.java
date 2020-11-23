@@ -6,43 +6,106 @@ public class SnakeLadderGame {
 	
 	static int currentPosition=0;
 	static int noPlay=0;
+	static int startPosition=0;
+	static int winPosition=30;
+
+
 	
 	public static int playRollDie() {
 		Random random=new Random();			
 		int rollNumber = random.nextInt(6)+1;
 		return rollNumber;
 	}
-	public static int playLadder() {
+	public static int findOptionNumber() {
 		Random random=new Random();			
-		int ladderStep = random.nextInt(6)+1;
-		System.out.println(ladderStep);
-		return ladderStep;
+		int optionNumber = random.nextInt(3);
+		return optionNumber;
 	}
-	public static int snackAttack() {
-		Random random=new Random();			
-		int snackBite = random.nextInt(6)+1;
-		return snackBite;
-	}
+	
 	
 	public static void main(String[] args) {
 		
-		int dieNumber=playRollDie();
+		
+		 while( currentPosition <= winPosition ) {
+			int option = findOptionNumber();
+			//System.out.println("option : "+option);
+			if( option == 0 ) {
+				 currentPosition = noPlay;			 
+			 }else if( option == 1 ) {
+				 //Got Ladder
+				 if( currentPosition > 10 ) {
 
-		if(dieNumber==0) {
-			currentPosition = noPlay;
-			System.out.println("No play");
+					 System.out.println("Player win Current Position is1 : "+currentPosition);
+				 }
+				 currentPosition += playRollDie();
 
-			
-		}else if(dieNumber==1) {
-				System.out.println("Got ladder");
-				currentPosition = currentPosition + playLadder();
+			 }else if( option == 2 ) {
+				 //Snake Bite
+				 if( currentPosition > 0 ) {
+					 currentPosition -= playRollDie();
+
+					 System.out.println("Snake Attack position :"+currentPosition);
+				 }
+			 }
+		 
+			if( currentPosition == 27 ) {
+					int reguiredNo = playRollDie();
+
+					 System.out.println("The game is Hold current position :"+currentPosition);
+					 if( reguiredNo == 3 ) {
+					 currentPosition += playRollDie();
+					 }
+					
+					 System.out.println("The game is Win :"+currentPosition);
+					 
+			}else if( currentPosition == 25 ) {
+				int reguiredNo = playRollDie();
+
+				 System.out.println("The game is Hold current position :"+currentPosition);
+				 if( reguiredNo == 5 ) {
+				 currentPosition += playRollDie();
+				 }
 				
-		}else if(dieNumber==2) {
-				System.out.println("Snake attack");
-				currentPosition = currentPosition - snackAttack();	
+				 System.out.println("The game is Win :"+currentPosition);
+				 
+			}else if( currentPosition == 26 ) {
+				int reguiredNo = playRollDie(); 
+				 System.out.println("The game is Hold current position :"+currentPosition);
 
-			}
+				 if( reguiredNo == 4 ) {
+				 currentPosition += playRollDie();				 
+				 }
+				 System.out.println("The game is Win :"+currentPosition);
+				
+			 }else if( currentPosition == 28 ) {
+				 int reguiredNo = playRollDie();
 
+				 System.out.println("The game is Hold current position :"+currentPosition);
+
+				 if( reguiredNo == 2 ) {
+				 currentPosition += playRollDie();
+				 }
+				 
+				 System.out.println("The game is Win :"+currentPosition);
+
+			 }else if( currentPosition == 29 ) {
+				 int reguiredNo = playRollDie();
+
+				 System.out.println("The game is Hold current position :"+currentPosition);
+
+				 if( reguiredNo == 1 ) {
+				 currentPosition += playRollDie();
+				 }
+				 
+				 System.out.println("The game is Win :"+currentPosition);
+			 }
+		 	
+		 }
+		 
 	}
+	}
+	  
+	
+  
 
-}
+
