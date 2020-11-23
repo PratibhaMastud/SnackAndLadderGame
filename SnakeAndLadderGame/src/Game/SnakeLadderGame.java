@@ -8,8 +8,6 @@ public class SnakeLadderGame {
 	static int noPlay=0;
 	static int winPosition=30;
 
-
-	
 	public static int playRollDie() {
 		Random random=new Random();			
 		int rollNumber = random.nextInt(6)+1;
@@ -95,13 +93,10 @@ public class SnakeLadderGame {
 				 if( reguiredNo == 1 ) {
 				 currentPosition += playRollDie();
 				 }
-				 
 				 System.out.println("The game is Win :"+currentPosition);
 			 }
-		 	
-		 }
-		 
-	}
+		  }
+	   }
 	}
 	  
 	
