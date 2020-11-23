@@ -6,7 +6,6 @@ public class SnakeLadderGame {
 	
 	static int currentPosition=0;
 	static int noPlay=0;
-	static int startPosition=0;
 	static int winPosition=30;
 
 
